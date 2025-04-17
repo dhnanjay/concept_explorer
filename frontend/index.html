@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Concept Explorer // Retro</title>
-
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -125,7 +125,7 @@
       <div><label for="provider">Provider:</label><select id="provider" name="provider" class="input-field" required><option value="gemini" selected>Gemini</option><option value="openai">OpenAI</option></select></div>
       <div><label for="model">Model (optional):</label><input type="text" id="model" name="model" class="input-field" placeholder="Backend default" /></div>
       <div><label for="api_key">API Key (optional):</label><input type="password" id="api_key" name="api_key" class="input-field" placeholder="Backend default" /></div>
-      <div class="slider-row"><label for="depth">Max Depth: <span id="depth-value">3</span></label><div class="flex items-center gap-2"><input type="range" id="depth-slider" name="depth-slider" min="1" max="8" value="3" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-primary-color flex-grow"><input type="number" id="depth" name="depth" min="1" max="8" value="3" class="input-field w-16 text-center" required></div></div>
+      <div class="slider-row"><label for="depth">Max Depth: <span id="depth-value">3</span></label><div class="flex items-center gap-2"><input type="range" id="depth-slider" name="depth-slider" min="1" max="3" value="2" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-primary-color flex-grow"><input type="number" id="depth" name="depth" min="1" max="8" value="3" class="input-field w-16 text-center" required></div></div>
       <div><label for="sleep_duration">Node Delay (s):</label><input type="number" id="sleep_duration" name="sleep_duration" value="0.2" step="0.1" min="0" class="input-field" required /></div>
       <div><label for="diversity">Diversity (0–1):</label><input type="number" id="diversity" name="diversity" value="0.8" step="0.1" min="0" max="1" class="input-field" required /></div>
     </form>

@@ -7,7 +7,7 @@ import logging
 import time
 
 import networkx as nx
-import google.generativeai as genai #pip install -q -U google-generativeai
+import google.generativeai as genai  # pip install -q -U google-generativeai
 from openai import OpenAI, AsyncOpenAI
 from tenacity import retry, stop_after_attempt, wait_exponential
 
@@ -15,8 +15,8 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 logger = logging.getLogger(__name__)
 
 # --- Constants ---
-DEFAULT_GEMINI_MODEL = "gemini-1.5-flash-latest"  # Or another suitable model
-DEFAULT_OPENAI_MODEL = "gpt-4o-mini"  # Or gpt-3.5-turbo, gpt-4 etc.
+DEFAULT_GEMINI_MODEL = "gemini-1.5-flash-8b"  # "gemini-1.5-flash-latest"  # Or another suitable model
+DEFAULT_OPENAI_MODEL = "gpt-4o-mini"  # Or gpt-4o etc.
 MAX_API_RETRIES = 3
 
 
@@ -77,19 +77,20 @@ class ConceptExplorer:
             5. Ensure suggestions logically relate to BOTH:
                - The immediate topic "{concept}"
                - The overall learning path context: {' → '.join(full_path)}
-            6. Use the following analytical approaches to identify relevant related concepts for learning:
+            6. Unique: Do not repeat any concept already in {' → '.join(full_path)} or among your suggestions.
+            7. Use the following analytical approaches to identify relevant related concepts for learning:
                - Identify Core Components/Building Blocks: What are the essential parts or prerequisites of "{concept}"?
                - Find Foundational Principles: What underlying theories, rules, or axioms does "{concept}" rely on?
                - Explore Key Processes/Functions: What does "{concept}" *do* or enable? What are the main activities involved?
                - Examine Contrasting/Comparative Concepts: What are important alternatives, opposing ideas, or similar-but-different concepts that clarify "{concept}"?
                - Investigate Practical Applications/Use Cases: Where or how is "{concept}" used in practice?
                - Consider Historical/Evolutionary Context: How did "{concept}" develop or what did it evolve from (if relevant for understanding)?
-            7. **IMPORTANT**: Your response MUST be ONLY a valid JSON array of strings, with no other text, explanation, or formatting.
+            8. **IMPORTANT**: Your response MUST be ONLY a valid JSON array of strings, with no other text, explanation, or formatting.
 
             Avoid suggesting concepts already present in the path: {' → '.join(full_path)}. Strive for relevance and utility for learning.
 
             Return ONLY a JSON array of strings.
-            Example: ["Core Component A", "Underlying Principle B", "Key Process C", "Contrasting Concept D"]
+            Example: ["Prerequisite A", "Core Principle B", "Key Process C", "Practical Application D", "Comparative Concept E"]
         """).strip()
         return prompt
 
