@@ -1,5 +1,6 @@
 
 # backend/main.py
+from .explorer import ConceptExplorer
 import asyncio
 import json
 import os
@@ -15,7 +16,7 @@ import uvicorn
 import logging
 
 # Assuming these imports exist based on user's code
-from explorer import ConceptExplorer
+# from explorer import ConceptExplorer
 from models import ExplorationRequest # Keep if used elsewhere, but not needed for GET endpoint params
 
 # --- Logging Setup ---
