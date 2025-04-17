@@ -17,7 +17,7 @@ import logging
 
 # Assuming these imports exist based on user's code
 # from explorer import ConceptExplorer
-from models import ExplorationRequest # Keep if used elsewhere, but not needed for GET endpoint params
+from .models import ExplorationRequest # Keep if used elsewhere, but not needed for GET endpoint params
 
 # --- Logging Setup ---
 logging.basicConfig(level=logging.INFO)
