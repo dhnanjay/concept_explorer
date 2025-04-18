@@ -10,7 +10,7 @@ WORKDIR /app
 # Install build dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
- && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/*
 
 # Copy and install Python deps
 COPY backend/requirements.txt .
@@ -31,8 +31,8 @@ COPY --from=builder /usr/local/bin /usr/local/bin
 COPY backend/ ./backend
 COPY frontend/ ./frontend
 
-# Expose port (match your Uvicorn port)
-EXPOSE 8000
+# Document the port (Cloud Run will set PORT=8080)
+EXPOSE 8080
 
-# Default command: run FastAPI with Uvicorn
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Use the PORT env var if set, defaulting to 8080
+CMD ["sh","-c","uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8080}"]
