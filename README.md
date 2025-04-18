@@ -11,6 +11,12 @@
 
 ---
 
+### 👋 Stay in Touch
+
+- **LinkedIn**: [dhananjay on LinkedIn](https://www.linkedin.com/in/dhnanjay)  
+- **Twitter**: [@dhnanjay](https://twitter.com/dhnanjay)
+
+---
 ## 🚩 Table of Contents
 
 1. [Overview](#overview)  
